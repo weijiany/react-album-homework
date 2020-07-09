@@ -1,4 +1,41 @@
+@mixin row {
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .UserInfo {
   padding-top: 60px;
   width: 400px;
+
+  .title {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .concat-me {
+    font-size: 1.8em;
+    margin-top: 70px;
+    color: #868686;
+  }
+
+  .left {
+    @include row;
+    width: 35%;
+    font-weight: bold;
+  }
+
+  .right {
+    @include row;
+    flex-grow: 1;
+    text-align: right;
+  }
+
+  .blue {
+    color: #0093f1;
+  }
 }

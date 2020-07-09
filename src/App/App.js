@@ -9,7 +9,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
+      user: {
+        company: {
+          name: '',
+        },
+      },
     };
   }
 
@@ -28,7 +32,7 @@ class App extends Component {
         <Header user={user} />
         <main className="content">
           <Albums />
-          <UserInfo />
+          <UserInfo user={user} />
         </main>
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { fetchUser } from '../apiUtil';
+import { fetchAlbums, fetchUser } from '../apiUtil';
 import Header from '../Header/Header';
 import Albums from '../Albums/Albums';
 import UserInfo from '../UserInfo/UserInfo';
@@ -14,6 +14,7 @@ class App extends Component {
           name: '',
         },
       },
+      albums: [],
     };
   }
 
@@ -23,15 +24,21 @@ class App extends Component {
         user,
       });
     });
+
+    fetchAlbums().then((albums) => {
+      this.setState({
+        albums,
+      });
+    });
   }
 
   render() {
-    const { user } = this.state;
+    const { albums, user } = this.state;
     return (
       <div data-testid="app" className="App">
         <Header user={user} />
         <main className="content">
-          <Albums />
+          <Albums albums={albums} />
           <UserInfo user={user} />
         </main>
       </div>

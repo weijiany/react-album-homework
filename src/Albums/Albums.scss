@@ -15,5 +15,17 @@
       font-weight: 600;
       font-size: 16px;
     }
+
+    .flex-wrapper {
+      margin-top: 20px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+
+      .flex-box {
+        word-break:break-word;
+        width: 150px;
+      }
+    }
   }
 }
